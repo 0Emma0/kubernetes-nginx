@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+    name: "kubernetes-f707"
+    labels:
+        app: "kubernetes-f707"
+    annotations:
+        kubernetes.io/ingress.class: addon-http-application-routing
+spec:
+    rules:
+        - host: nginx-web-kubernetes-f707.c8a970f755b74233a8f9.eastus.aksapp.io
+          http:
+            paths:
+            - path: /
+              backend:
+                serviceName: "kubernetes-f707"
+                servicePort: 80
